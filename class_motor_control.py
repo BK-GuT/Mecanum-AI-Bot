@@ -130,28 +130,29 @@ def motor_control_thread(motor, direction, start_speed, end_speed, step_delay=0.
     set_motor_speed(motor, 0)
     print(f"Motor {motor} stopped")
 
-try:
-    # Define threads
-    motor1_thread = threading.Thread(target=motor_control_thread, args=(1, 'backward', 10, MAX_DUTY_CYCLE))
-    motor2_thread = threading.Thread(target=motor_control_thread, args=(2, 'backward', 10, MAX_DUTY_CYCLE))
-    motor3_thread = threading.Thread(target=motor_control_thread, args=(3, 'backward', 10, MAX_DUTY_CYCLE))
-    motor4_thread = threading.Thread(target=motor_control_thread, args=(4, 'backward', 10, MAX_DUTY_CYCLE))
+def m1_to_m4_backward ():
+    try:
+        # Define threads
+        motor1_thread = threading.Thread(target=motor_control_thread, args=(1, 'backward', 10, MAX_DUTY_CYCLE))
+        motor2_thread = threading.Thread(target=motor_control_thread, args=(2, 'backward', 10, MAX_DUTY_CYCLE))
+        motor3_thread = threading.Thread(target=motor_control_thread, args=(3, 'backward', 10, MAX_DUTY_CYCLE))
+        motor4_thread = threading.Thread(target=motor_control_thread, args=(4, 'backward', 10, MAX_DUTY_CYCLE))
 
-    # Start threads
-    motor1_thread.start()
-    motor2_thread.start()
-    motor3_thread.start()
-    motor4_thread.start()
+        # Start threads
+        motor1_thread.start()
+        motor2_thread.start()
+        motor3_thread.start()
+        motor4_thread.start()
 
-    # Wait for threads to complete
-    motor1_thread.join()
-    motor2_thread.join()
-    motor3_thread.join()
-    motor4_thread.join()
+        # Wait for threads to complete
+        motor1_thread.join()
+        motor2_thread.join()
+        motor3_thread.join()
+        motor4_thread.join()
 
-finally:
-    pwm_A.stop()
-    pwm_B.stop()
-    pwm_C.stop()
-    pwm_D.stop()
-    GPIO.cleanup()
+    finally:
+        pwm_A.stop()
+        pwm_B.stop()
+        pwm_C.stop()
+        pwm_D.stop()
+        GPIO.cleanup()

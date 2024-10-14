@@ -1,11 +1,13 @@
 import tkinter as tk
 from PIL import Image, ImageTk
+#import class_motor_control
 
 def move_forward():
     print("Moving Forward")
 
 def move_backward():
     print("Moving Backward")
+    #class_motor_control.m1_to_m4_backward()
 
 def move_left():
     print("Moving Left")
