@@ -1,4 +1,5 @@
 import tkinter as tk
+from PIL import Image, ImageTk
 
 def move_forward():
     print("Moving Forward")
@@ -30,6 +31,16 @@ def turn_left():
 def turn_right():
     print("Turning Right")
 
+def show_help():
+    help_window = tk.Toplevel(root)
+    help_window.title("Help")
+    img = Image.open("mecanum_directions.png")  # Replace 'help.png' with your image file path
+    #img = img.resize((1125, 990), Image.Transform)  # Resize image if needed (1125, 990)
+    photo = ImageTk.PhotoImage(img)
+    label = tk.Label(help_window, image=photo)
+    label.image = photo  # Keep a reference to prevent garbage collection
+    label.pack()
+
 # Create the main window
 root = tk.Tk()
 root.title("Mecanum-Robot-Car Remote-Control")
@@ -45,9 +56,11 @@ backward_left_button = tk.Button(root, text="Backward Left", width=15, command=m
 backward_right_button = tk.Button(root, text="Backward Right", width=15, command=move_backward_right)
 turn_left_button = tk.Button(root, text="Turn Left", width=15, command=turn_left)
 turn_right_button = tk.Button(root, text="Turn Right", width=15, command=turn_right)
+help_button = tk.Button(root, text="Help", width=10, command=show_help)
 
 # Arrange buttons in a grid
 forward_button.grid(row=0, column=1, pady=5)
+help_button.grid(row=0, column=2, padx=5, pady=5, sticky='ne')
 forward_left_button.grid(row=1, column=0, padx=5)
 forward_right_button.grid(row=1, column=2, padx=5)
 left_button.grid(row=2, column=0, padx=5)
