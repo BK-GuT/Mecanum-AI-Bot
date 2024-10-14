@@ -4,22 +4,22 @@ import time
 import threading
 
 # GPIO pin definitions for Motor 1
-EN_A = 12  # GPIO12 (PWM)
+EN_A = 12  # PWM
 IN1_A = 5
 IN2_A = 6
 
 # GPIO pin definitions for Motor 2
-EN_B = 18  # GPIO18 (PWM)
+EN_B = 18  # PWM
 IN1_B = 16
 IN2_B = 20
 
 # GPIO pin definitions for Motor 3
-EN_C = 13  # GPIO (PWM)
+EN_C = 13  # PWM
 IN1_C = 21
 IN2_C = 26
 
 # GPIO pin definitions for Motor 4
-EN_D = 19  # GPIO (PWM)
+EN_D = 19  # PWM
 IN1_D = 23
 IN2_D = 24
 
@@ -62,29 +62,29 @@ pwm_D.start(0)
 
 def set_motor_direction(motor, direction):
     if motor == 1:
-        IN1 = IN1_A
-        IN2 = IN2_A
+        in1 = IN1_A
+        in2 = IN2_A
     elif motor == 2:
-        IN1 = IN1_B
-        IN2 = IN2_B
+        in1 = IN1_B
+        in2 = IN2_B
     elif motor == 3:
-        IN1 = IN1_C
-        IN2 = IN2_C
+        in1 = IN1_C
+        in2 = IN2_C
     elif motor == 4:
-        IN1 = IN1_D
-        IN2 = IN2_D
+        in1 = IN1_D
+        in2 = IN2_D
     else:
         print("Invalid motor number")
         return
     if direction == 'forward':
-        GPIO.output(IN1, GPIO.HIGH)
-        GPIO.output(IN2, GPIO.LOW)
+        GPIO.output(in1, GPIO.HIGH)
+        GPIO.output(in2, GPIO.LOW)
     elif direction == 'backward':
-        GPIO.output(IN1, GPIO.LOW)
-        GPIO.output(IN2, GPIO.HIGH)
+        GPIO.output(in1, GPIO.LOW)
+        GPIO.output(in2, GPIO.HIGH)
     else:
-        GPIO.output(IN1, GPIO.LOW)
-        GPIO.output(IN2, GPIO.LOW)
+        GPIO.output(in1, GPIO.LOW)
+        GPIO.output(in2, GPIO.LOW)
     print(f"Motor {motor} direction set to {direction}")
 
 def set_motor_speed(motor, speed):
