@@ -1,0 +1,3 @@
+# Git will ignore these files and folders:
+.idea
+.idea/shelf/
