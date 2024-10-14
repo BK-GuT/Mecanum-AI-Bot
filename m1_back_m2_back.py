@@ -1,50 +1,50 @@
 import RPi.GPIO as GPIO
 import time
-#import sys
 import threading
 
-# GPIO pin definitions for Motor 1
+# GPIO pin definitions
+# Motor 1
 EN_A = 12  # PWM
 IN1_A = 5
 IN2_A = 6
 
-# GPIO pin definitions for Motor 2
+# Motor 2
 EN_B = 18  # PWM
 IN1_B = 16
 IN2_B = 20
 
-# GPIO pin definitions for Motor 3
+# Motor 3
 EN_C = 13  # PWM
 IN1_C = 21
 IN2_C = 26
 
-# GPIO pin definitions for Motor 4
+# Motor 4
 EN_D = 19  # PWM
 IN1_D = 23
 IN2_D = 24
 
-# Maximum duty cycle
 MAX_DUTY_CYCLE = 100
 
 # Initialize GPIO
 GPIO.setmode(GPIO.BCM)
 
-# Setup Motor 1 pins
+# Setup pins
+# Motor 1
 GPIO.setup(EN_A, GPIO.OUT)
 GPIO.setup(IN1_A, GPIO.OUT)
 GPIO.setup(IN2_A, GPIO.OUT)
 
-# Setup Motor 2 pins
+# Motor 2
 GPIO.setup(EN_B, GPIO.OUT)
 GPIO.setup(IN1_B, GPIO.OUT)
 GPIO.setup(IN2_B, GPIO.OUT)
 
-# Setup Motor 3 pins
+# Motor 3
 GPIO.setup(EN_C, GPIO.OUT)
 GPIO.setup(IN1_C, GPIO.OUT)
 GPIO.setup(IN2_C, GPIO.OUT)
 
-# Setup Motor 4 pins
+# Motor 4
 GPIO.setup(EN_D, GPIO.OUT)
 GPIO.setup(IN1_D, GPIO.OUT)
 GPIO.setup(IN2_D, GPIO.OUT)
@@ -131,25 +131,19 @@ def motor_control_thread(motor, direction, start_speed, end_speed, step_delay=0.
     print(f"Motor {motor} stopped")
 
 try:
-    # Define thread for Motor 1
+    # Define threads
     motor1_thread = threading.Thread(target=motor_control_thread, args=(1, 'backward', 10, MAX_DUTY_CYCLE))
-
-    # Define thread for Motor 2
     motor2_thread = threading.Thread(target=motor_control_thread, args=(2, 'backward', 10, MAX_DUTY_CYCLE))
-
-    # Define thread for Motor 3
     motor3_thread = threading.Thread(target=motor_control_thread, args=(3, 'backward', 10, MAX_DUTY_CYCLE))
-
-    # Define thread for Motor 4
     motor4_thread = threading.Thread(target=motor_control_thread, args=(4, 'backward', 10, MAX_DUTY_CYCLE))
 
-    # Start both threads
+    # Start threads
     motor1_thread.start()
     motor2_thread.start()
     motor3_thread.start()
     motor4_thread.start()
 
-    # Wait for both threads to complete
+    # Wait for threads to complete
     motor1_thread.join()
     motor2_thread.join()
     motor3_thread.join()
