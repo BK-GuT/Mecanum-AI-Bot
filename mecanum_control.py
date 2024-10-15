@@ -1,5 +1,5 @@
 import tkinter as tk
-from PIL import Image, ImageTk # Pillow (PythonImagingLibrary fork)
+from PIL import Image, ImageTk # Pillow (fork of PythonImagingLibrary)
 # import class_motor_control
 
 def move_forward():
@@ -61,12 +61,12 @@ forward_button = tk.Button(root, text="^\nForward", width=15, background="magent
 backward_button = tk.Button(root, text="Backward\nv", width=15, background="magenta", command=move_backward)
 left_button = tk.Button(root, text="< Left", width=15, background="magenta", command=move_left)
 right_button = tk.Button(root, text="Right >", width=15, background="magenta", command=move_right)
-forward_left_button = tk.Button(root, text="Forward Left", width=15, command=move_forward_left)
-forward_right_button = tk.Button(root, text="Forward Right", width=15, command=move_forward_right)
-backward_left_button = tk.Button(root, text="Backward Left", width=15, command=move_backward_left)
-backward_right_button = tk.Button(root, text="Backward Right", width=15, command=move_backward_right)
-turn_left_button = tk.Button(root, text="Turn Left", width=15, command=turn_left)
-turn_right_button = tk.Button(root, text="Turn Right", width=15, command=turn_right)
+forward_left_button = tk.Button(root, text="↖ Forward Left", width=15, command=move_forward_left)
+forward_right_button = tk.Button(root, text="Forward Right ↗", width=15, command=move_forward_right)
+backward_left_button = tk.Button(root, text="↙ Backward Left", width=15, command=move_backward_left)
+backward_right_button = tk.Button(root, text="Backward Right ↘", width=15, command=move_backward_right)
+turn_left_button = tk.Button(root, text="⤿ Turn Left", width=15, command=turn_left)
+turn_right_button = tk.Button(root, text="Turn Right ⤾", width=15, command=turn_right)
 help_button = tk.Button(root, text="Help", width=10, command=show_help)
 
 # Arrange buttons in a grid
