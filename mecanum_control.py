@@ -1,43 +1,58 @@
 import tkinter as tk
-from PIL import Image, ImageTk
-#import class_motor_control
+from PIL import Image, ImageTk # Pillow (PythonImagingLibrary fork)
+
+import class_motor_control
+
+
+# import class_motor_control
+
+
 
 def move_forward():
     print("Moving Forward")
+    # class_motor_control.forward()
 
 def move_backward():
     print("Moving Backward")
-    #class_motor_control.backward()
+    # class_motor_control.backward()
 
 def move_left():
     print("Moving Left")
+    # class_motor_control.left()
 
 def move_right():
     print("Moving Right")
+    # class_motor_control.right()
 
 def move_forward_left():
     print("Moving Forward Left")
+    # class_motor_control.forward_left()
 
 def move_forward_right():
     print("Moving Forward Right")
+    # class_motor_control.forward_right()
 
 def move_backward_left():
     print("Moving Backward Left")
+    # class_motor_control.backward_left()
 
 def move_backward_right():
     print("Moving Backward Right")
+    # class_motor_control.backward_right()
 
 def turn_left():
     print("Turning Left")
+    # class_motor_control.turn_left()
 
 def turn_right():
     print("Turning Right")
+    # class_motor_control.turn_right()
 
 def show_help():
     help_window = tk.Toplevel(root)
     help_window.title("Help")
-    img = Image.open("mecanum_directions.png")  # Replace 'help.png' with your image file path
-    #img = img.resize((1125, 990), Image.Transform)  # Resize image if needed (1125, 990)
+    img = Image.open("mecanum_directions.png")
+    img = img.resize((925, 790), Image.LANCZOS) # resampling filter high-quality downsampling
     photo = ImageTk.PhotoImage(img)
     label = tk.Label(help_window, image=photo)
     label.image = photo  # Keep a reference to prevent garbage collection
