@@ -7,7 +7,7 @@ def move_forward():
 
 def move_backward():
     print("Moving Backward")
-    #class_motor_control.m1_to_m4_backward()
+    #class_motor_control.backward()
 
 def move_left():
     print("Moving Left")
