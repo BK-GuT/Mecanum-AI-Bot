@@ -1,12 +1,6 @@
 import tkinter as tk
 from PIL import Image, ImageTk # Pillow (PythonImagingLibrary fork)
-
-import class_motor_control
-
-
 # import class_motor_control
-
-
 
 def move_forward():
     print("Moving Forward")
