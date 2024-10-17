@@ -75,7 +75,7 @@ def set_motor_direction(motor, direction):
         in2 = IN2_D
     else:
         print("Invalid motor number")
-        return
+        return 1
     if direction == 'forward':
         GPIO.output(in1, GPIO.HIGH)
         GPIO.output(in2, GPIO.LOW)
