@@ -68,7 +68,7 @@ backward_right_button = tk.Button(root, text="Backward Right ↘", width=15, com
 turn_left_button = tk.Button(root, text="↺ Turn Left", width=15, command=turn_left)
 turn_right_button = tk.Button(root, text="Turn Right ↻", width=15, command=turn_right)
 help_button = tk.Button(root, text="Help", width=10, command=show_help)
-speed_slider = tk.Scale(root, from_=100, to=0,)
+speed_slider = tk.Scale(root, from_=100, to=0, label="Speed")
 
 # Arrange buttons in a grid
 forward_button.grid(row=0, column=1, pady=5)
