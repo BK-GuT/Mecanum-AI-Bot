@@ -1,46 +1,46 @@
 import tkinter as tk
 from PIL import Image, ImageTk # Pillow (fork of PythonImagingLibrary)
-# import class_motor_control
+# import motor_control
 
 def move_forward():
     print("Moving Forward")
-    # class_motor_control.forward()
+    # motor_control.forward()
 
 def move_backward():
     print("Moving Backward")
-    # class_motor_control.backward()
+    # motor_control.backward()
 
 def move_left():
     print("Moving Left")
-    # class_motor_control.left()
+    # motor_control.left()
 
 def move_right():
     print("Moving Right")
-    # class_motor_control.right()
+    # motor_control.right()
 
 def move_forward_left():
     print("Moving Forward Left")
-    # class_motor_control.forward_left()
+    # motor_control.forward_left()
 
 def move_forward_right():
     print("Moving Forward Right")
-    # class_motor_control.forward_right()
+    # motor_control.forward_right()
 
 def move_backward_left():
     print("Moving Backward Left")
-    # class_motor_control.backward_left()
+    # motor_control.backward_left()
 
 def move_backward_right():
     print("Moving Backward Right")
-    # class_motor_control.backward_right()
+    # motor_control.backward_right()
 
 def turn_left():
     print("Turning Left")
-    # class_motor_control.turn_left()
+    # motor_control.turn_left()
 
 def turn_right():
     print("Turning Right")
-    # class_motor_control.turn_right()
+    # motor_control.turn_right()
 
 def show_help():
     help_window = tk.Toplevel(root)
@@ -68,6 +68,7 @@ backward_right_button = tk.Button(root, text="Backward Right ↘", width=15, com
 turn_left_button = tk.Button(root, text="↺ Turn Left", width=15, command=turn_left)
 turn_right_button = tk.Button(root, text="Turn Right ↻", width=15, command=turn_right)
 help_button = tk.Button(root, text="Help", width=10, command=show_help)
+speed_slider = tk.Scale(root, from_=100, to=0,)
 
 # Arrange buttons in a grid
 forward_button.grid(row=0, column=1, pady=5)
@@ -81,6 +82,7 @@ turn_left_button.grid(row=4, column=0, padx=5, pady=(0, 0))
 backward_right_button.grid(row=3, column=2, padx=5, pady=(0, 0))
 turn_right_button.grid(row=4, column=2, padx=5, pady=(0, 0))
 backward_button.grid(row=5, column=1, pady=5)
+speed_slider.grid(row=5, column=0, padx=5, pady=3)
 
 # Start the GUI event loop
 root.mainloop()
